@@ -1,0 +1,78 @@
+
+<Auth>:
+    BoxLayout:
+        orientation:'vertical'
+        canvas.before:
+            Color: 
+                rgba: [1,1,1,1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: "assets/imgs/hasoft-blue.png"
+    BoxLayout:
+        orientation:'vertical'
+        bcolor:app.colors.white
+        spacing: dp(54)
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_y: .3
+            Text:
+                text: 'HASOFT SYSTEM'
+                font_name: app.fonts.styled
+                font_size: app.fonts.size.h3
+                color: app.colors.secondary
+                halign: "center"
+                valign: 'bottom'
+                size_hint_y: None
+        AnchorLayout:
+            size_hint_y: .5
+            BoxLayout:
+                orientation:'vertical'
+                spacing: dp(24)
+                padding: dp(24)
+                # size_hint_x: .12
+                BackBox:
+                    size_hint_y: None
+                    height: dp(64)
+                    bcolor: app.colors.secondary
+                    radius: [self.height*.1]
+                    padding: [dp(12), dp(12)]
+                    FlatField:
+                        hint_text: "username"
+                        hint_color: app.colors.primary
+                        font_size: app.fonts.size.h2
+                        multiline: False
+                BackBox:
+                    size_hint_y: None
+                    height: dp(64)
+                    bcolor: app.colors.secondary
+                    radius: [self.height*.1]
+                    padding: [dp(12), dp(12)]
+                    FlatField:
+                        hint_text: "password"
+                        hint_color: app.colors.primary
+                        font_size: app.fonts.size.h2
+                        password: True
+                        multiline: False
+                BackBox:
+                    size_hint_y: None
+                    height: dp(64)
+                    RoundedButton:
+                        text:'Sign In'
+                        font_name: app.fonts.heading
+                        font_size: app.fonts.size.h1
+                        bcolor: app.colors.primary
+                        radius: [self.height*.1]
+                        on_release: root.authenticate()
+                BackBox:
+                    size_hint_y: None
+                    height: dp(64)
+                    FlatButton:
+                        text:"Don't have an Account"
+                        font_name: app.fonts.heading
+                        font_size: app.fonts.size.h1
+                        color: app.colors.primary
+                        radius: [self.height*.1]
+        BoxLayout:
+            size_hint_y: .2
+            orientation:'vertical'

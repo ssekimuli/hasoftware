@@ -47,31 +47,29 @@
                     font_size: app.fonts.size.h2
                     color: app.colors.black
                     valign: "middle"
-                    # size_hint_x: .2
+                    size_hint_x: .2
                 Text:
-                    text: 'Product Code'
+                    text: 'Product Name'
                     font_name: app.fonts.heading
                     font_size: app.fonts.size.h2
                     color: app.colors.black
                     valign: "middle"
+                    size_hint_x: .4
                 Text:
-                    text: 'Product Code'
+                    text: 'Qty'
+                    font_name: app.fonts.heading
+                    font_size: app.fonts.size.h2
+                    halign: "center"
+                    color: app.colors.black
+                    valign: "middle"
+                    size_hint_x: .2
+                Text:
+                    text: 'Price'
                     font_name: app.fonts.heading
                     font_size: app.fonts.size.h2
                     color: app.colors.black
                     valign: "middle"
-                Text:
-                    text: 'Product Code'
-                    font_name: app.fonts.heading
-                    font_size: app.fonts.size.h2
-                    color: app.colors.black
-                    valign: "middle"
-                Text:
-                    text: 'Product Code'
-                    font_name: app.fonts.heading
-                    font_size: app.fonts.size.h2
-                    color: app.colors.black
-                    valign: "middle"
+                    size_hint_x: .2
             BoxLayout:
                 ScrollView:
                     do_scroll: [False, True]
@@ -83,27 +81,6 @@
                         size_hint_y: None
                         height: self.minimum_height
                         spacing: dp(12)
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
-                        ProductList:
     BackBox:
         # orientation:'vertical'
         size_hint_x: .3
@@ -114,34 +91,49 @@
     bcolor: app.colors.grey_light
     spacing: dp(12)
     padding: [dp(12),dp(12)]
+    canvas.after:
+        Color: 
+            rgba: app.colors.grey_light
+        Rectangle:
+            pos: self.pos
+            size: [self.size[0], dp(1)]
     Text:
-        text: 'Product Code'
-        font_name: app.fonts.heading
+        text: root.pcode
+        font_name: app.fonts.body
         # font_size: app.fonts.size.h2
         color: app.colors.black
         valign: "middle"
-        # size_hint_x: .2
+        size_hint_x: .2
     Text:
-        text: 'Product Code'
-        font_name: app.fonts.heading
+        text: root.name
+        font_name: app.fonts.body
         # font_size: app.fonts.size.h2
         color: app.colors.black
         valign: "middle"
+        size_hint_x: .4
+    BackBox:
+        size_hint_x: .2
+        FlatButton:
+            text: icon("icon-minus-circle")
+            color: app.colors.secondary
+            font_size: app.fonts.size.h1
+            on_release: root.qty_callback(root, False) if root.qty_callback else print
+        Text:
+            text: str(root.qty)
+            font_name: app.fonts.body
+            # font_size: app.fonts.size.h2
+            halign: "center"
+            color: app.colors.black
+            valign: "middle"
+        FlatButton:
+            text: icon("icon-plus-circle")
+            color: app.colors.secondary
+            font_size: app.fonts.size.h1
+            on_release: root.qty_callback(root, True) if root.qty_callback else print
     Text:
-        text: 'Product Code'
-        font_name: app.fonts.heading
+        text: str(round(root.price, 2))
+        font_name: app.fonts.body
         # font_size: app.fonts.size.h2
         color: app.colors.black
         valign: "middle"
-    Text:
-        text: 'Product Code'
-        font_name: app.fonts.heading
-        # font_size: app.fonts.size.h2
-        color: app.colors.black
-        valign: "middle"
-    Text:
-        text: 'Product Code'
-        font_name: app.fonts.heading
-        # font_size: app.fonts.size.h2
-        color: app.colors.black
-        valign: "middle"
+        size_hint_x: .2

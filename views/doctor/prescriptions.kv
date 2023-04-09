@@ -29,7 +29,7 @@
                         width: self.height
                         halign: "center"
                         valign: "middle"
-                    FlatField:
+                    SearchBar:
                         hint_text: "search medicine"
         BoxLayout:
             spacing: dp(12)
@@ -82,9 +82,55 @@
                         height: self.minimum_height
                         spacing: dp(12)
     BackBox:
-        # orientation:'vertical'
+        orientation:'vertical'
         size_hint_x: .3
         bcolor: app.colors.grey_dark
+        spacing: dp(12)
+        BoxLayout:
+            size_hint_y: None
+            height: dp(64)
+            spacing: dp(12)
+            FlatButton:
+                text: icon("icon-bell")
+                color: app.colors.secondary
+                font_size: app.fonts.size.h1
+                size_hint_x: None
+                width: self.height
+            Widget:
+            BoxLayout:
+                RelativeLayout:
+                    Text:                
+                        text: icon("icon-chevron-down")
+                        color: app.colors.secondary
+                        font_size: app.fonts.size.h2
+                        halign: "right"
+                    BoxLayout:
+                        padding: [0,0, dp(24),0]
+                        Spinner:
+                            text: "first.Sekimuli"
+                            font_name: app.fonts.styled
+                            color: app.colors.secondary
+                            font_size: app.fonts.size.h6
+                            text_size: self.size
+                            halign: "right"
+                            valign: "middle"
+                            values: ['Profile','Logout']
+                            background_normal: ""
+                            background_down: ""
+                            background_color: [0,0,0,0]
+        Divider:
+            id: br
+        BoxLayout:    
+
+<Divider@Widget>:
+    size_hint_y: None
+    height: dp(1.2)
+    canvas.before:
+        Color:
+            rgba: rgba("#f2f2f2")
+        Rectangle:
+            pos:self.pos
+            size: self.size
 <ProductList>:
     size_hint_y: None
     height: dp(48)
